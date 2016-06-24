@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8576D93B1CFE9AA800027FF2 /* MandleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8576D93A1CFE9AA800027FF2 /* MandleViewController.swift */; };
 		85FEDBDB1CE4344600DCC0E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEDBDA1CE4344600DCC0E1 /* AppDelegate.swift */; };
 		85FEDBDD1CE4344600DCC0E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEDBDC1CE4344600DCC0E1 /* ViewController.swift */; };
 		85FEDBE01CE4344600DCC0E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85FEDBDE1CE4344600DCC0E1 /* Main.storyboard */; };
 		85FEDBE21CE4344600DCC0E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85FEDBE11CE4344600DCC0E1 /* Assets.xcassets */; };
 		85FEDBE51CE4344600DCC0E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85FEDBE31CE4344600DCC0E1 /* LaunchScreen.storyboard */; };
 		85FEDBF01CE4344700DCC0E1 /* MandelbrotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEDBEF1CE4344700DCC0E1 /* MandelbrotTests.swift */; };
+		85FEDBFB1CE4348600DCC0E1 /* MandleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEDBFA1CE4348600DCC0E1 /* MandleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8576D93A1CFE9AA800027FF2 /* MandleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandleViewController.swift; sourceTree = "<group>"; };
 		85FEDBD71CE4344600DCC0E1 /* Mandelbrot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mandelbrot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85FEDBDA1CE4344600DCC0E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85FEDBDC1CE4344600DCC0E1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		85FEDBEB1CE4344700DCC0E1 /* MandelbrotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MandelbrotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		85FEDBEF1CE4344700DCC0E1 /* MandelbrotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandelbrotTests.swift; sourceTree = "<group>"; };
 		85FEDBF11CE4344700DCC0E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85FEDBFA1CE4348600DCC0E1 /* MandleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +83,9 @@
 			children = (
 				85FEDBDA1CE4344600DCC0E1 /* AppDelegate.swift */,
 				85FEDBDC1CE4344600DCC0E1 /* ViewController.swift */,
+				85FEDBFA1CE4348600DCC0E1 /* MandleView.swift */,
 				85FEDBDE1CE4344600DCC0E1 /* Main.storyboard */,
+				8576D93A1CFE9AA800027FF2 /* MandleViewController.swift */,
 				85FEDBE11CE4344600DCC0E1 /* Assets.xcassets */,
 				85FEDBE31CE4344600DCC0E1 /* LaunchScreen.storyboard */,
 				85FEDBE61CE4344600DCC0E1 /* Info.plist */,
@@ -198,6 +204,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				85FEDBDD1CE4344600DCC0E1 /* ViewController.swift in Sources */,
+				8576D93B1CFE9AA800027FF2 /* MandleViewController.swift in Sources */,
+				85FEDBFB1CE4348600DCC0E1 /* MandleView.swift in Sources */,
 				85FEDBDB1CE4344600DCC0E1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +398,7 @@
 				85FEDBF61CE4344700DCC0E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		85FEDBF71CE4344700DCC0E1 /* Build configuration list for PBXNativeTarget "MandelbrotTests" */ = {
 			isa = XCConfigurationList;
@@ -398,6 +407,7 @@
 				85FEDBF91CE4344700DCC0E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
