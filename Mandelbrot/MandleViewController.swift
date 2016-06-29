@@ -98,6 +98,10 @@ class MandleViewController: UIViewController, HeavyPainter {
     
     func updateUI(){
         print("Here we'd replace the current ")
+        if let current = self.currentImageView{
+            current.removeFromSuperview()
+        }
+        
         plotView.addSubview(loadingView!)
         loadingView?.startAnimating()
         // Here surround it in a dispatch-queue block
@@ -264,7 +268,17 @@ class MandleViewController: UIViewController, HeavyPainter {
             
             let endX = sender.locationInView(currentImageView!).x
             addZoomRectangle(endX)
+        case .Ended:
+            let deltaXInUnitValue = Double(zoomOrigin.x) * scaleOfUnit
+            let newX = xOrigin + deltaXInUnitValue
+            let deltaYInUnitValue = Double(zoomOrigin.y) * scaleOfUnit
+            let newY = maxY - deltaYInUnitValue
             
+            xOrigin = newX
+            maxY = newY
+            
+            // In terms of the domain that will just be replaced
+            defaultDomain = Double(zoomRectangle!.bounds.width) * scaleOfUnit
         default: ()
         }
         
