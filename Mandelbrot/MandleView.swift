@@ -76,7 +76,7 @@ class MandleView: UIView {
     
     var zoomOrigin : CGPoint = CGPoint(x: 0,y: 0){
         didSet{
-                print("The user started a zoom rectangle")
+                //print("The user started a zoom rectangle")
         }
     }
     

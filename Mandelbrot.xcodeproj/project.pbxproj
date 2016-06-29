@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		850212CB1D2379E300197849 /* MandlebrotImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850212CA1D2379E200197849 /* MandlebrotImageView.swift */; };
 		8576D93B1CFE9AA800027FF2 /* MandleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8576D93A1CFE9AA800027FF2 /* MandleViewController.swift */; };
 		85FEDBDB1CE4344600DCC0E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEDBDA1CE4344600DCC0E1 /* AppDelegate.swift */; };
 		85FEDBDD1CE4344600DCC0E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEDBDC1CE4344600DCC0E1 /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		850212CA1D2379E200197849 /* MandlebrotImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandlebrotImageView.swift; sourceTree = "<group>"; };
 		8576D93A1CFE9AA800027FF2 /* MandleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandleViewController.swift; sourceTree = "<group>"; };
 		85FEDBD71CE4344600DCC0E1 /* Mandelbrot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mandelbrot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85FEDBDA1CE4344600DCC0E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		85FEDBD91CE4344600DCC0E1 /* Mandelbrot */ = {
 			isa = PBXGroup;
 			children = (
+				850212CA1D2379E200197849 /* MandlebrotImageView.swift */,
 				85FEDBDA1CE4344600DCC0E1 /* AppDelegate.swift */,
 				85FEDBDC1CE4344600DCC0E1 /* ViewController.swift */,
 				85FEDBFA1CE4348600DCC0E1 /* MandleView.swift */,
@@ -207,6 +210,7 @@
 				8576D93B1CFE9AA800027FF2 /* MandleViewController.swift in Sources */,
 				85FEDBFB1CE4348600DCC0E1 /* MandleView.swift in Sources */,
 				85FEDBDB1CE4344600DCC0E1 /* AppDelegate.swift in Sources */,
+				850212CB1D2379E300197849 /* MandlebrotImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

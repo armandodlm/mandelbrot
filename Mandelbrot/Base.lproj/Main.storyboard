@@ -39,10 +39,12 @@
                     </view>
                     <connections>
                         <outlet property="paintingActivityIndicator" destination="Z1k-9R-fhq" id="ivo-LR-7EV"/>
+                        <outlet property="pan" destination="geU-ce-Dmy" id="7kY-6Z-zWo"/>
                         <outlet property="plotView" destination="8bC-Xf-vdC" id="P3W-2M-bOl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2m-1e-nwy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="geU-ce-Dmy"/>
                 <pinchGestureRecognizer id="51x-E5-cJQ"/>
             </objects>
             <point key="canvasLocation" x="899" y="337"/>

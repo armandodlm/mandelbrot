@@ -42,7 +42,7 @@ class MandleViewController: UIViewController, HeavyPainter {
     
     var zoomOrigin : CGPoint = CGPoint(x: 0,y: 0){
         didSet{
-            print("The user started a zoom rectangle")
+            print("The user started a zoom rectangle at: \(zoomOrigin.x) \(zoomOrigin.y)")
         }
     }
     
@@ -77,9 +77,9 @@ class MandleViewController: UIViewController, HeavyPainter {
             
             plotView.ActivityHandler = self
             
-            plotView.addGestureRecognizer(UIPinchGestureRecognizer(target: plotView, action: "scale:"))
+            //plotView.addGestureRecognizer(UIPinchGestureRecognizer(target: plotView, action: "scale:"))
             //plotView.addGestureRecognizer(UIPanGestureRecognizer(target: plotView, action: "shiftAxis:" ))
-            plotView.addGestureRecognizer(UIPanGestureRecognizer(target: plotView, action: "selectNewFrame:" ))
+            //plotView.addGestureRecognizer(UIPanGestureRecognizer(target: plotView, action: "selectNewFrame:" ))
         }
     }
     
@@ -93,6 +93,9 @@ class MandleViewController: UIViewController, HeavyPainter {
         paintingActivityIndicator?.stopAnimating()
     }
     
+    
+    var currentImageView : UIImageView?
+    
     func updateUI(){
         print("Here we'd replace the current ")
         plotView.addSubview(loadingView!)
@@ -100,12 +103,15 @@ class MandleViewController: UIViewController, HeavyPainter {
         // Here surround it in a dispatch-queue block
         let quos = Int(QOS_CLASS_USER_INITIATED.rawValue)
         dispatch_async(dispatch_get_global_queue(quos, 0)){
-            let im = UIImageView(frame: self.plotView.bounds)
-            im.image = self.constructPlot()
+            self.currentImageView = UIImageView(frame: self.plotView.bounds)
+            self.currentImageView?.userInteractionEnabled = true
+            self.currentImageView?.image = self.constructPlot()
+            self.currentImageView?.addGestureRecognizer(self.pan)
+            
             dispatch_async(dispatch_get_main_queue()){
                 self.loadingView?.stopAnimating()
                 self.loadingView?.removeFromSuperview()
-                self.plotView.addSubview(im)
+                self.plotView.addSubview(self.currentImageView!)
             }
         }
 
@@ -211,15 +217,72 @@ class MandleViewController: UIViewController, HeavyPainter {
     
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-        plotView.zoomOrigin = (touches.first?.locationInView(plotView))!
+        if let currentView = currentImageView{
+            zoomOrigin = (touches.first?.locationInView(currentView))!
+            print("Zoom began at \(zoomOrigin.x) \(zoomOrigin.y)")
+        }
     }
+    
+    
+    func addZoomRectangle(endX : CGFloat){
+        //print("Ended at: \(gesture.locationInView(self))")
+        
+        print("The change in X is: \(endX - zoomOrigin.x)")
+        
+        let zoomWidth : CGFloat = endX - zoomOrigin.x
+        let zoomHeight : CGFloat = zoomWidth / aspectRatio
+        
+        print("The zoom rectangle would have width: \(zoomWidth) height: \(zoomWidth / aspectRatio) ")
+        
+        let zoomRectBounds = CGSize(width: zoomWidth, height: zoomHeight)
+        let zoomRect = CGRect(origin: zoomOrigin, size: zoomRectBounds)
+        
+        let rectView : UIView = UIView(frame: zoomRect)
+        rectView.backgroundColor = UIColor.whiteColor()
+        rectView.alpha = 0.5
+        currentImageView!.addSubview(rectView)
+        
+        zoomRectangle = rectView
+    }
+    
+    
+    
+    
+    @IBAction func changeZoomBoundaries(sender: UIPanGestureRecognizer) {
+        
+        print("Pan action happening!")
+        
+        switch sender.state
+        {
+        case .Changed:
+            
+            print("The pan position changed to \(sender.locationInView(currentImageView!).x) \(sender.locationInView(currentImageView!).y)")
+            
+            if let z = zoomRectangle{
+                z.removeFromSuperview()
+            }
+            
+            let endX = sender.locationInView(currentImageView!).x
+            addZoomRectangle(endX)
+            
+        default: ()
+        }
+        
+    }
+    
+    
+    @IBOutlet weak var pan: UIPanGestureRecognizer!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        pan.addTarget(self, action: "changeZoomBoundaries:")
+        
+        
     }
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
